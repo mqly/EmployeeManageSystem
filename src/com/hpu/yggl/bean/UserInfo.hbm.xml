@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hpu.yggl.bean.UserInfo" table="user_info">
+		<id name="id" column="ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="username" column="USERNAME" not-null="true" />
+		<property name="password" column="PASSWORD" not-null="true" />
+		<property name="realname" column="REALNAME" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hpu.yggl.bean.RRoleFunction" table="r_role_function">
+		<id name="id" column="ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="roleId" column="ROLE_ID" not-null="true" />
+		<property name="functionId" column="FUNCTION_ID" not-null="true" />
+	</class>
+</hibernate-mapping>

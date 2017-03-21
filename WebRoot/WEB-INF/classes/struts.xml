@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<package name="action" extends="struts-default" namespace="/">
+		<!-- <action name="getrur" class="com.hpu.yggl.action.RUserRoleAction" 
+			method="getRUR"> <result> /jsp/main.jsp </result> </action> <action name="getrrf" 
+			class="com.hpu.yggl.action.RRoleFunctionAction" method="getRRF"> <result> 
+			/jsp/main.jsp </result> </action> -->
+	</package>
+
+	<package name="actionjson" extends="json-default" namespace="/">
+		<action name="loginAction" class="com.hpu.yggl.action.UserInfoAction"
+			method="login">
+		</action>
+
+		<action name="getFunctionsAction" class="com.hpu.yggl.action.FunctionInfoAction"
+			method="getFunctionByUserId">
+		</action>
+		<action name="getFunctionList" class="com.hpu.yggl.action.FunctionInfoAction"
+			method="getFunctionList">
+		</action>
+		<action name="getRoleList" class="com.hpu.yggl.action.RoleInfoAction"
+			method="getRoleList">
+		</action>
+		<action name="getDeptList" class="com.hpu.yggl.action.DeptInfoAction"
+			method="getDeptList">
+		</action>
+
+		<action name="getOfficeList" class="com.hpu.yggl.action.OfficeInfoAction"
+			method="getOfficeList">
+		</action>
+		<action name="getUserAction" class="com.hpu.yggl.action.UserInfoAction"
+			method="getUser">
+		</action>
+		<action name="basicUpdateUserAction" class="com.hpu.yggl.action.UserInfoAction"
+			method="basicUpdateUser">
+		</action>
+		<action name="getSomeDepts" class="com.hpu.yggl.action.DeptInfoAction"
+			method="getSomeDepts">
+		</action>
+		<action name="addDept" class="com.hpu.yggl.action.DeptInfoAction"
+			method="addDept">
+		</action>
+		<action name="updateDept" class="com.hpu.yggl.action.DeptInfoAction"
+			method="updateDept">
+		</action>
+		<action name="deleteDept" class="com.hpu.yggl.action.DeptInfoAction"
+			method="deleteDept">
+		</action>
+		<action name="deleteRole" class="com.hpu.yggl.action.RoleInfoAction"
+			method="deleteRole">
+		</action>
+		<action name="getSomeRoles" class="com.hpu.yggl.action.RoleInfoAction"
+			method="getSomeRoles">
+		</action>
+		<action name="addRole" class="com.hpu.yggl.action.RoleInfoAction"
+			method="addRole">
+		</action>
+		<action name="updateRole" class="com.hpu.yggl.action.RoleInfoAction"
+			method="updateRole">
+		</action>
+		<action name="getSomeOffices" class="com.hpu.yggl.action.OfficeInfoAction"
+			method="getSomeOffices">
+		</action>
+		<action name="deleteOffice" class="com.hpu.yggl.action.OfficeInfoAction"
+			method="deleteOffice">
+		</action>
+		<action name="addOffice" class="com.hpu.yggl.action.OfficeInfoAction"
+			method="addOffice">
+		</action>
+		<action name="updateOffice" class="com.hpu.yggl.action.OfficeInfoAction"
+			method="updateOffice">
+		</action>
+		<action name="getSomeUsersDetail" class="com.hpu.yggl.action.UserInfoAction"
+			method="getSomeUsersDetail">
+		</action>
+		<action name="addUserDetail" class="com.hpu.yggl.action.UserInfoAction"
+			method="addUserDetail">
+		</action>
+		<action name="deleteUserDetail" class="com.hpu.yggl.action.UserInfoAction"
+			method="deleteUserDetail">
+		</action>
+		<action name="updateUserDetail" class="com.hpu.yggl.action.UserInfoAction"
+			method="updateUserDetail">
+		</action>
+		<action name="getSomeFuncs" class="com.hpu.yggl.action.FunctionInfoAction"
+			method="getSomeFuncs">
+		</action>
+		<action name="deleteFunc" class="com.hpu.yggl.action.FunctionInfoAction"
+			method="deleteFunc">
+		</action>
+		<action name="addFunction" class="com.hpu.yggl.action.FunctionInfoAction"
+			method="addFunction">
+		</action>
+		<action name="updateFunc" class="com.hpu.yggl.action.FunctionInfoAction"
+			method="updateFunc">
+		</action>
+
+
+
+		<!-- android login test -->
+		<action name="androidlogin" class="com.hpu.yggl.action.UserInfoAction"
+			method="androidLoginTest">
+		</action>
+		<!-- post file test -->
+		<action name="postfile" class="com.hpu.yggl.action.UserInfoAction"
+			method="postfile">
+		</action>
+		<!-- upload test -->
+		<action name="upload" class="com.hpu.yggl.action.UserInfoAction"
+			method="upload">
+		</action>
+		
+		
+	</package>
+</struts>  

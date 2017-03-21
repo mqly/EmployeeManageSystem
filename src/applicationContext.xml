@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/manage?useUnicode=true&amp;characterEncoding=UTF-8">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/hpu/yggl/bean/UserInfo.hbm.xml</value>
+				<value>com/hpu/yggl/bean/RoleInfo.hbm.xml</value>
+				<value>com/hpu/yggl/bean/DeptInfo.hbm.xml</value>
+				<value>com/hpu/yggl/bean/FunctionInfo.hbm.xml</value>
+				<value>com/hpu/yggl/bean/OfficeInfo.hbm.xml</value>
+				<value>com/hpu/yggl/bean/RUserRole.hbm.xml</value>
+				<value>com/hpu/yggl/bean/RUserOffice.hbm.xml</value>
+				<value>com/hpu/yggl/bean/RUserDept.hbm.xml</value>
+				<value>com/hpu/yggl/bean/RRoleFunction.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- dao , service -->
+	<bean id="userInfoDao" class="com.hpu.yggl.dao.impl.UserInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userInfoService" class="com.hpu.yggl.service.impl.UserInfoServiceImpl">
+		<property name="userInfoDao" ref="userInfoDao" />
+	</bean>
+
+	<bean id="roleInfoDao" class="com.hpu.yggl.dao.impl.RoleInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roleInfoService" class="com.hpu.yggl.service.impl.RoleInfoServiceImpl">
+		<property name="roleInfoDao" ref="roleInfoDao" />
+	</bean>
+
+	<bean id="deptInfoDao" class="com.hpu.yggl.dao.impl.DeptInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deptInfoService" class="com.hpu.yggl.service.impl.DeptInfoServiceImpl">
+		<property name="deptInfoDao" ref="deptInfoDao" />
+	</bean>
+
+	<bean id="functionInfoDao" class="com.hpu.yggl.dao.impl.FunctionInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="functionInfoService" class="com.hpu.yggl.service.impl.FunctionInfoServiceImpl">
+		<property name="functionInfoDao" ref="functionInfoDao" />
+	</bean>
+
+	<bean id="officeInfoDao" class="com.hpu.yggl.dao.impl.OfficeInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="officeInfoService" class="com.hpu.yggl.service.impl.OfficeInfoServiceImpl">
+		<property name="officeInfoDao" ref="officeInfoDao" />
+	</bean>
+
+	<bean id="rUserRoleDao" class="com.hpu.yggl.dao.impl.RUserRoleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="rUserRoleService" class="com.hpu.yggl.service.impl.RUserRoleServiceImpl">
+		<property name="rUserRoleDao" ref="rUserRoleDao" />
+	</bean>
+
+	<bean id="rRoleFunctionDao" class="com.hpu.yggl.dao.impl.RRoleFunctionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="rRoleFunctionService" class="com.hpu.yggl.service.impl.RRoleFunctionServiceImpl">
+		<property name="rRoleFunctionDao" ref="rRoleFunctionDao" />
+	</bean>
+
+	<bean id="rUserDeptDao" class="com.hpu.yggl.dao.impl.RUserDeptDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="rUserDeptService" class="com.hpu.yggl.service.impl.RUseDeptServiceImpl">
+		<property name="rUserDeptDao" ref="rUserDeptDao" />
+	</bean>
+
+	<bean id="rUserOfficeDao" class="com.hpu.yggl.dao.impl.RUserOfficeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="rUserOfficeService" class="com.hpu.yggl.service.impl.RUserOfficeServiceImpl">
+		<property name="rUserOfficeDao" ref="rUserOfficeDao" />
+	</bean>
+</beans>
